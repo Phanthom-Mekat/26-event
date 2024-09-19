@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1-text">Delete me if u can</h1>
+    <input id="input-field" type="text">
+    <button id="delete-btn" disabled>Delete</button>
+
+    <script>
+        document.getElementById('input-field').addEventListener('keyup',function(event){
+            const value = event.target.value;
+            const btn =document.getElementById('delete-btn')
+// or one line 
+            btn.disabled =value!=='delete';
+///
+            // if(value === 'delete'){
+            //     btn.setAttribute('disabled',false)
+            // }
+            // else{
+            //     btn.setAttribute('disabled',true);
+            // }
+        })
+
+        document.getElementById('delete-btn').addEventListener('click',function(){
+            const h1 = document.getElementById('h1-text');
+            h1.style.display='none';
+        });
+    </script>
+</body>
+</html>

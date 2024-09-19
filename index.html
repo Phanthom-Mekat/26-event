@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom events</title>
+</head>
+<body>
+    <section>
+        <h1>Dom special events today</h1>
+        <button onclick="console.log(10)">click me</button>
+        <button onclick="console.log(65)">click me</button>
+        <button onclick="document.body.style.backgroundColor='yellow'">click</button>
+        <button onclick="document.body.style.backgroundColor='white'">reset</button>
+
+        <button onclick="makeRed()">make red</button>
+
+        <button id="make-blue">make blue</button>
+        <button id="make-green">make green</button>
+        <button id="make-pink">make pink</button>
+
+        <button id="make-purple">make purple</button>
+
+        <button id="make-gold">make goldenrod</buttoni>
+
+    </section>
+
+    <section>
+        <h3 id="default-id">default text</h3>
+        <button onclick="clickme()">Click to change header</button>
+
+        <button id="event-listner">add event lisntner methode</button>
+        <br><br>
+        <p id="p-title">Default input text</p>
+        <input id="input-field" type="text">
+        <button id="btn-update">update</button>
+        <br><br>
+
+    </section>
+
+    <section>
+        <div id="container-p">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur repellat laudantium nisi ad error nemo rerum eveniet, placeat numquam odio.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur repellat laudantium nisi ad error nemo rerum eveniet, placeat numquam odio.
+            </p>
+            <p class="last-p">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur repellat laudantium nisi ad error nemo rerum eveniet, placeat numquam odio.
+            </p>
+        </div>
+
+        <textarea name="" id="text-area" cols="70" rows="10"></textarea>
+        <br>
+        <button id="btn-add">Click me now</button>
+    </section>
+     
+
+    <script src="js/event.js"></script>
+    <script>
+        function clickme(){
+            document.getElementById('default-id').innerText = 'new text';
+        }
+         
+        document.getElementById('event-listner').addEventListener('click',function(){
+            document.getElementById('default-id').innerText ='added by event listner'
+        })
+// input field update 
+        document.getElementById('btn-update').addEventListener('click',function(){
+            const inputField =document.getElementById('input-field')
+            document.getElementById('p-title').innerText=inputField.value;
+            inputField.value='';
+
+        })
+// for text area 
+    document.getElementById('btn-add').addEventListener('click',function(){
+        const textArea = document.getElementById('text-area');
+        
+        const lastP =document.getElementById('container-p');
+        const newP =document.createElement('p');
+        newP.innerText = textArea.value;
+        lastP.append(newP);
+        textArea.value='';
+    })
+    </script>
+</body>
+</html>
